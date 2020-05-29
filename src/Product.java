@@ -2,10 +2,10 @@ import java.math.BigDecimal;
 
 public class Product {
     private String name;
-    private BigDecimal price;
-    private BigDecimal tax;
+    private double price;
+    private double tax;
 
-    public Product(String name, BigDecimal price, BigDecimal tax) {
+    public Product(String name, double price, double tax) {
         this.name = name;
         this.price = price;
         this.tax = tax;
@@ -19,19 +19,19 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public BigDecimal getTax() {
+    public double getTax() {
         return tax;
     }
 
-    public void setTax(BigDecimal tax) {
+    public void setTax(double tax) {
         this.tax = tax;
     }
 

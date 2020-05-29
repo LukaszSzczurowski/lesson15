@@ -1,15 +1,19 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
 public class AppTest {
     public static void main(String[] args) {
-        try {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("stats.txt"))){
             List<Product> productList = FileUtils.readDataFromFile("data.csv");
-            for (Product product : productList) {
-                System.out.println(product);
-            }
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("Sprzedaż netto: " + Calculation.sumNettoPrice(productList) + "zł \n");
+            stringBuilder.append("Suma podatku VAT: " + Calculation.sumTaxVAT(productList) + "\n");
+            stringBuilder.append("Suma sprzedaży brutto: " + Calculation.sumBruttoPrice(productList) + "zł \n");
+            bw.write(stringBuilder.toString());
         } catch (IOException e) {
-            System.err.println("Nie udało się wczytać pliku");
+            System.err.println("Błąd zapisu/odczytu pliku");
         }
     }
 }

@@ -15,8 +15,8 @@ public class FileUtils {
             helperTable[i] = br.readLine();
             String[] split = helperTable[i].split(";");
             String name = split[0];
-            BigDecimal price = new BigDecimal(split[1]);
-            BigDecimal tax = new BigDecimal(split[2]);
+            double price = Double.parseDouble(split[1]);
+            double tax = Double.parseDouble(split[2]);
             productList.add(new Product(name, price, tax));
         }
         br.close();
